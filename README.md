@@ -48,6 +48,10 @@ centralizado os dados de produtos, consulta de vendas e um relatório simplifica
 
 <p><h3 id="markdown-header-descricao-challenge-backend-mobile-saude-2020-2">Configurações do banco<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji></p></h3></p>
 <ul>
+    
+    <li>
+        DUMP: O dump do banco de dados está na raiz do projeto com a estrutura das tabelas montada.
+    </li>
     <li>
         DATABASE=perfectpey 
     </li>
@@ -62,10 +66,12 @@ centralizado os dados de produtos, consulta de vendas e um relatório simplifica
     </li>  
  </ul>
 
-<p><h3 id="markdown-header-descricao-challenge-backend-mobile-saude-2020-2">Regras da aplicação<g-emoji class="g-emoji" alias="warning" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png">⚠️</g-emoji></p></h3>
+<p><h3 id="markdown-header-descricao-challenge-backend-mobile-saude-2020-2">Regras da aplicação e Observações<g-emoji class="g-emoji" alias="warning" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png">⚠️</g-emoji></p></h3>
 <ul>
 <li>A listagem das vendas é realizada por padrão com filtros opcionais por cliente e data de venda, se não tiver cliente selecionado será retornada todas as datas</li>
 <li>Para os produtos não são utilizados filtros</li>
 <li>Para excluir um produto vinculado a uma venda é necessário excluir uma venda  antes</li>
 <li>O cliente é cadastrado, editado e excluído junto com a exclusão de vendas</li>
+
+<li>OBSERVAÇÃO: Pelo tempo proposto, e a minha rotina do dia a dia, não consegui aperfeiçoar o projeto, adicionando validações de cadastro, e outras estruturações melhores mas acredito que da para ter uma noção de como é meu trabalho</li>    
 </ul>
