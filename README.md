@@ -66,6 +66,6 @@ centralizado os dados de produtos, consulta de vendas e um relatório simplifica
 <ul>
 <li>A listagem das vendas é realizada por padrão com filtros opcionais por cliente e data de venda, se não tiver cliente selecionado será retornada todas as datas</li>
 <li>Para os produtos não são utilizados filtros</li>
-<li>Para excluir um produto é necessário excluir uma venda antes</li>
+<li>Para excluir um produto vinculado a uma venda é necessário excluir uma venda  antes</li>
 <li>O cliente é cadastrado, editado e excluído junto com a exclusão de vendas</li>
 </ul>
