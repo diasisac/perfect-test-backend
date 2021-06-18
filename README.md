@@ -59,7 +59,13 @@ centralizado os dados de produtos, consulta de vendas e um relatório simplifica
     </li>
     <li>
         Collation=utf8mb4_general_ci 
-    </li>
-        
+    </li>  
  </ul>
 
+<p><h3 id="markdown-header-descricao-challenge-backend-mobile-saude-2020-2">Regras da aplicação<g-emoji class="g-emoji" alias="warning" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png">⚠️</g-emoji></p></h3>
+<ul>
+<li>A listagem das vendas é realizada por padrão com filtros opcionais por cliente e data de venda, se não tiver cliente selecionado será retornada todas as datas</li>
+<li>Para os produtos não são utilizados filtros</li>
+<li>Para excluir um produto é necessário excluir uma venda antes</li>
+<li>O cliente é cadastrado, editado e excluído junto com a exclusão de vendas</li>
+</ul>
