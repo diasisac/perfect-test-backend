@@ -39,8 +39,9 @@ centralizado os dados de produtos, consulta de vendas e um relatório simplifica
  
  Instalação do Projeto
 
-1 - Realizar a instalação de um servidor web WAMP ou XAMPP, se preferir pode ser utilizado o próprio servidor do PHP.
-
-2 - Realizar a clonagem do repositório, e após isso é necessário instalar as dependências do projeto e para isso podemos prosseguir com comando composer install dentro do diretório do projeto EXEMPLO: C:\xampp\htdocs\perfect-test-backend
-
-3 - Com a instalação das depêndencias concluída podemos acessar a aplicação com a seguinte url http://localhost/perfect-test-backend/public/
+<ol>
+<li>Realizar a instalação de um servidor web WAMP ou XAMPP, se preferir pode ser utilizado o próprio servidor do PHP.</li>
+<li>Clonar este projeto local</li>
+<li>Após a clonagem do repositório, é necessário instalar as dependências do projeto e para isso podemos prosseguir com comando <code>composer install</code> dentro do diretório do projeto EXEMPLO: <code>C:\xampp\htdocs\perfect-test-backend</code></li>
+<li>Com a instalação das depêndencias concluída podemos acessar a aplicação com a seguinte url</li> <code>http://localhost/perfect-test-backend/public/</code>
+</ol>
