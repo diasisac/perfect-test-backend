@@ -10,6 +10,9 @@
             padding: 0;
         }
     </style>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+crossorigin="anonymous"></script>
+
 </head>
 <body>
 <!-- NAVBAR TOP -->
@@ -21,7 +24,7 @@
         </div>
     </div>
 </div>
-<script src="{{ url('/js/app.js') }}"></script>
+<script src="{{ url('js/app.js') }}"></script>
 <script src="https://kit.fontawesome.com/d712964458.js" crossorigin="anonymous"></script>
 @yield('script')
 </body>

@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['namespace' => 'Api', 'as' => 'api.'], function (){
+    Route::get('/cliente', 'ClienteController@index');
+    Route::get('/produto', 'ProdutoController@index');
+    Route::get('/produto/{id}', 'ProdutoController@exibir');
+    Route::get('/venda', 'VendaController@index');
 });

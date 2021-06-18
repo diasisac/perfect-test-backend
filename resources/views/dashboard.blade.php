@@ -1,11 +1,23 @@
 @extends('layout')
 
 @section('content')
+@if (\Session::has('success'))
+<div style="display: flex; justify-content:center;" class="alert alert-success">
+        {!! \Session::get('success') !!}
+</div>
+@endif
+
+@if (\Session::has('danger'))
+<div style="display: flex; justify-content:center;" class="alert alert-danger">
+        {!! \Session::get('danger') !!}
+</div>
+@endif
+
     <h1>Dashboard de vendas</h1>
     <div class='card mt-3'>
         <div class='card-body'>
             <h5 class="card-title mb-5">Tabela de vendas
-                <a href='' class='btn btn-secondary float-right btn-sm rounded-pill'><i class='fa fa-plus'></i>  Nova venda</a></h5>
+                <a href='<?= url('vendas') ?>' class='btn btn-secondary float-right btn-sm rounded-pill'><i class='fa fa-plus'></i>  Nova venda</a></h5>
             <form>
                 <div class="form-row align-items-center">
                     <div class="col-sm-5 my-1">
@@ -13,14 +25,9 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Clientes</div>
                             </div>
-                            <select class="form-control" id="inlineFormInputName">
-                                <option>Clientes</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
+                              <select name="cliente" id="cliente" class="form-control">
+                                <option value="" rel="">Selecione</option>
+                              </select>
                         </div>
                     </div>
                     <div class="col-sm-6 my-1">
@@ -29,7 +36,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">Período</div>
                             </div>
-                            <input type="text" class="form-control date_range" id="inlineFormInputGroupUsername" placeholder="Username">
+                            <input type="text" name="periodo" class="form-control date_range" id="inlineFormInputGroupUsername" placeholder="Username">
                         </div>
                     </div>
                     <div class="col-sm-1 my-1">
@@ -53,48 +60,36 @@
                         Ações
                     </th>
                 </tr>
+                @if (!empty($vendas))
+
+                @foreach ( $vendas as $venda )
                 <tr>
                     <td>
-                        Perfect Caps
+                        {{$venda['produto']}}
                     </td>
                     <td>
-                        20/07/2019 19h15
+                        {{ implode('/', array_reverse(explode('-', $venda['data_venda'])))}}
                     </td>
                     <td>
-                        R$ 100,00
+                      R$ {{number_format($venda['preco'],2,",",".")}}
                     </td>
                     <td>
-                        <a href='' class='btn btn-primary'>Editar</a>
+                        <a href='<?= url('venda/'.$venda['id']) ?>' class='btn btn-primary'>Editar</a>
+                        <a href='<?= url('venda/excluir/'.$venda['id']) ?>' class='btn btn-danger'>X</a>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        Nature Caps
-                    </td>
-                    <td>
-                        20/07/2019 19h20
-                    </td>
-                    <td>
-                        R$ 125,00
-                    </td>
-                    <td>
-                        <a href='' class='btn btn-primary'>Editar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Libid Caps
-                    </td>
-                    <td>
-                        20/07/2019 19h45
-                    </td>
-                    <td>
-                        R$ 110,00
-                    </td>
-                    <td>
-                        <a href='' class='btn btn-primary'>Editar</a>
-                    </td>
-                </tr>
+                @endforeach
+                    
+                @else
+                <table>
+                    <tr>
+                        <div style="display:flex; justify-content: center;">
+                        Nenhuma venda do cliente selecionado foi encontrado.
+                        <div>
+                    </tr>
+                </table>        
+                @endif
+                
             </table>
         </div>
     </div>
@@ -113,39 +108,32 @@
                         Valor Total
                     </th>
                 </tr>
-                <tr>
-                    <td>
-                        Vendidos
-                    </td>
-                    <td>
-                        100
-                    </td>
-                    <td>
-                        R$ 100,00
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Cancelados
-                    </td>
-                    <td>
-                        120
-                    </td>
-                    <td>
-                        R$ 100,00
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Devoluções
-                    </td>
-                    <td>
-                        120
-                    </td>
-                    <td>
-                        R$ 100,00
-                    </td>
-                </tr>
+                @if (!empty($vendas))
+                
+                @foreach ( $vendas as $venda )
+                    <tr>
+                        <td>
+                            {{$venda['status_venda']}}
+                        </td>
+                        <td>
+                            {{$venda['quantidade_produto']}}
+                        </td>
+                        <td>
+                            R$ {{number_format($venda['preco']*$venda['quantidade_produto'],2,",",".")}}
+                        </td>
+                    </tr>
+                @endforeach
+                
+                @else
+                <table>
+                    <tr>
+                        <div style="display:flex; justify-content: center;">
+                        Nenhuma venda do cliente selecionado foi encontrado.
+                        <div>
+                    </tr>
+                </table>  
+                @endif
+                
             </table>
         </div>
     </div>
@@ -153,7 +141,7 @@
     <div class='card mt-3'>
         <div class='card-body'>
             <h5 class="card-title mb-5">Produtos
-                <a href='' class='btn btn-secondary float-right btn-sm rounded-pill'><i class='fa fa-plus'></i>  Novo produto</a></h5>
+                <a href='<?= url('produtos') ?>' class='btn btn-secondary float-right btn-sm rounded-pill'><i class='fa fa-plus'></i>  Novo produto</a></h5>
             <table class='table'>
                 <tr>
                     <th scope="col">
@@ -166,40 +154,45 @@
                         Ações
                     </th>
                 </tr>
-                <tr>
-                    <td>
-                        Perfect Caps
-                    </td>
-                    <td>
-                        R$ 100,00
-                    </td>
-                    <td>
-                        <a href='' class='btn btn-primary'>Editar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Nature Caps
-                    </td>
-                    <td>
-                        R$ 120,00
-                    </td>
-                    <td>
-                        <a href='' class='btn btn-primary'>Editar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Libid Caps
-                    </td>
-                    <td>
-                        R$ 150,00
-                    </td>
-                    <td>
-                        <a href='' class='btn btn-primary'>Editar</a>
-                    </td>
-                </tr>
+                @if (!empty($produtos))
+                @foreach ($produtos as $produto)
+                    <tr>
+                        <td>
+                            {{$produto['nome']}}
+                        </td>
+                        <td>
+                          R$ {{number_format($produto['preco'],2,",",".")}}
+                        </td>
+                        <td>
+                            <a href='<?= url('produto/'.$produto['id']) ?>' class='btn btn-primary'>Editar</a>
+                            <a href='<?= url('produto/excluir/'.$produto['id']) ?>' class='btn btn-danger'>X</a>
+                        </td>
+                    </tr>    
+                @endforeach    
+                @else
+                <table>
+                    <tr>
+                        <div style="display:flex; justify-content: center;">
+                        Nenhuma venda do cliente selecionado foi encontrado.
+                        <div>
+                    </tr>
+                </table>  
+                @endif                
             </table>
         </div>
     </div>
+
+<script>    
+$.ajax({
+    url: 'http://localhost/perfect-test-backend/public/api/cliente',
+    dataType: 'json',
+    type: 'GET',
+    success: function (data){
+        data.data.map(data => {
+            $('select#cliente').append('<option value="'+data.id+'" rel="'+data.nome+'"  >'+ data.nome +'</option>')
+        });
+    }
+});
+</script>
 @endsection
+
