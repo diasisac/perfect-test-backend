@@ -37,7 +37,7 @@ centralizado os dados de produtos, consulta de vendas e um relatório simplifica
 
 # Parte do desenvolvedor
  
-<p><h3 id="markdown-header-descricao-challenge-backend-mobile-saude-2020-2">Configurações do banco<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png"></g-emoji></p></h3></p>
+<p><h3 id="markdown-header-descricao-challenge-backend-mobile-saude-2020-2">Instalação do projeto<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png"></g-emoji></p></h3></p>
 
 <ol>
 <li>Realizar a instalação de um servidor web WAMP ou XAMPP, se preferir pode ser utilizado o próprio servidor do PHP.</li>
