@@ -40,6 +40,9 @@ centralizado os dados de produtos, consulta de vendas e um relatório simplifica
  Instalação do Projeto
 
 1 - Realizar a instalação de um servidor web WAMP ou XAMPP, se preferir pode ser utilizado o próprio servidor do PHP.
+
 2 - Criar uma pasta chamada desafio_mobile_saude e clonar este repositório dentro dessa pasta.
+
 3 - Após a clonagem do repositório, é necessário instalar as dependências do projeto e para isso podemos prosseguir com comando composer install dentro do diretório do projeto EXEMPLO: C:\xampp\htdocs\perfect-test-backend
+
 4 - Com a instalação das depêndencias concluída podemos acessar a aplicação com a seguinte url http://localhost/perfect-test-backend/public/
