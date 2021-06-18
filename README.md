@@ -45,7 +45,7 @@ centralizado os dados de produtos, consulta de vendas e um relatório simplifica
 <li>Após a clonagem do repositório, é necessário instalar as dependências do projeto e para isso podemos prosseguir com comando <code>composer install</code> dentro do diretório do projeto EXEMPLO: <code>C:\xampp\htdocs\perfect-test-backend</code></li>
 <li>Com a instalação das depêndencias concluída podemos acessar a aplicação com a seguinte url</li> <code>http://localhost/perfect-test-backend/public/</code>
 </ol>
-#
+
 <p><h3 id="markdown-header-descricao-challenge-backend-mobile-saude-2020-2">Configurações do banco<g-emoji class="g-emoji" alias="wrench" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f527.png">🔧</g-emoji></p></h3></p>
 <ul>
     <li>
